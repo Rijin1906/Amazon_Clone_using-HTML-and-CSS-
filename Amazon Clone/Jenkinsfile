@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo "Pulling image ${IMAGE_NAME} from Docker Hub..."
                 // Use 'sh' to run the standard Docker pull command
-                sh "/usr/local/bin/docker pull${IMAGE_NAME}:latest" 
+                sh "/usr/local/bin/docker pull ${IMAGE_NAME}:latest" 
                 echo 'Image pulled successfully.'
             }
         }
