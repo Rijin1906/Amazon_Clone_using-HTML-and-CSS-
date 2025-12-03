@@ -40,11 +40,11 @@ pipeline {
             steps {
                 echo 'Stopping and removing old container (if exists)...'
                 // Stop and remove old container to ensure the new one can start
-                sh "docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true"
+                sh "/usr/local/bin/docker stop ${CONTAINER_NAME} || true && /usr/local/bin/docker rm ${CONTAINER_NAME} || true"
                 
                 echo 'Running new container...'
                 // Run the new container using the defined variables
-                sh "docker run -d --name ${CONTAINER_NAME} -p ${PORT_MAPPING} ${IMAGE_NAME}:latest"
+                sh "/usr/local/bin/docker run -d --name ${CONTAINER_NAME} -p ${PORT_MAPPING} ${IMAGE_NAME}:latest"
                 
                 echo "Application is running on the Jenkins host machine at port 8080."
             }
