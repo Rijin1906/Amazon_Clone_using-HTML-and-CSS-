@@ -12,7 +12,7 @@ pipeline {
         CONTAINER_NAME = 'amazon-clone-web' 
         
         // Map host port 8080 to container port 80
-        PORT_MAPPING = '8080:80' 
+        PORT_MAPPING = '8081:80' 
     }
 
     stages {
@@ -46,7 +46,7 @@ pipeline {
                 // Run the new container using the defined variables
                 sh "/usr/local/bin/docker run -d --name ${CONTAINER_NAME} -p ${PORT_MAPPING} ${IMAGE_NAME}:latest"
                 
-                echo "Application is running on the Jenkins host machine at port 8080."
+                echo "Application is running on the Jenkins host machine at port 8081."
             }
         }
     }
